@@ -1,0 +1,30 @@
+
+pipeline {
+    agent any 
+    stages {
+        stage ('Install Stage') 
+          {
+        steps {
+        withMaven(maven : 'apache-maven-3.9.1') {
+       bat'mvn install'
+}
+}
+  }
+
+stage('Build') { 
+            steps {
+                echo "This is Build stage."
+            }
+        }
+        stage('Test') { 
+            steps {
+                echo "This is Test stage." 
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                echo "This is Deploy stage." 
+            }
+        }
+    }
+}
