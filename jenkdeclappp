@@ -1,0 +1,21 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Build') { 
+            steps {
+                echo "This is Build stage."
+            }
+        }
+        stage('Test') { 
+            steps {
+                echo "This is Test stage." 
+            }
+        }
+        stage('install') { 
+            steps {
+                echo "This is install stage." 
+                bat'mvn install'
+            }
+        }
+    }
+}
